@@ -1,0 +1,36 @@
+<import src="/pages/posts/post-item/post-item-template.wxml" />
+<!-- import的路径可以是相对，也可以是绝对路径 -->
+<!--pages/index/index.wxml-->
+<view>
+  <swiper catchtap='onSwoperTap' autoplay='true' interval='1000' indicator-dots='true' vertical='true'>
+    <swiper-item>
+      <image src='/images/wx.png' data-postid='4' ></image>
+    </swiper-item>
+
+    <swiper-item>
+      <image src='/images/post/bl.png' data-postid='1' ></image>
+    </swiper-item>
+
+    <swiper-item>
+      <image src='/images/vr.png' data-postid='2' ></image>
+    </swiper-item>
+  </swiper>
+
+  <block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="index">
+    <!-- wx:for-item="item" wx:for-index="index"这句话，可以省略，因为item 和index 是小程序的默认绑定值 -->
+    <view catchtap='onPostTap' data-postId="{{item.postId}}">
+    <!-- 其实上面用 data-postId="{{index}}" 更方便 -->
+      <template is="postItem" data="{{...item, index}}" />
+    </view>
+  </block>
+</view>
+
+<!-- pt 即 point 是和设备相关的长度单位（可理解为物理像素），css中的 px 是逻辑像素单位和设备无关的 
+大多数设计图，都是以 iPhone6 的物理像素 750*1334：为原型来进行设计的！因为 iPhone6 设备像素比 设备像素比 = 物理像素 / 逻辑像素(px) = 2，
+这里设计图给出的 375*220 是物理像素 小程序中 1物理像素 = 1rpx，所以它们之间的比例为 1：1 的关系。硬性结论，没有道理可讲,
+【小程序会默认将图片显示为320*240 的逻辑像素,无视图片之前的像素比】当逻辑像素宽度375px为时，宽度刚好占满
+小程序大小不超过 1 M
+小程序缓存不超过 10 M
+app.json pages 字段的第一个元素为小程序启动时，显示的页面。
+
+-->

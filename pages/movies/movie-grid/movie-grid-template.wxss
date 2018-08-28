@@ -1,0 +1,12 @@
+@import "../movie/movie-template.wxss";
+
+.single-movie-container {
+  float: left;
+  margin-bottom: 40rpx;
+}
+
+.grid-container {
+ margin: 12rpx 5rpx 0;
+ height: 1300rpx;
+}
+/* 使用竖向滚动时，需要给<scroll-view/>一个固定高度，通过 WXSS 设置 height */

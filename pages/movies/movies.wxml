@@ -1,0 +1,26 @@
+<!--一共有 movies star movie_list moview_grid movie_detail这几种组件，我们可以从最小的一部分开始编写-->
+<import src='movie-list/movie-list-template.wxml' />
+<import src='movie-grid/movie-grid-template.wxml' />
+
+<view class='search'>
+  <icon type='search' color='#405f80' size='13' class='search-img'></icon>
+  <input type='text' placeholder='我不是药神 西虹市首富 ...' placeholder-class='placeholder' bindfocus='onBindFocus' bindconfirm='onBindConfirm'></input>
+  <image wx:if='{{searchPannelShow}}' src='/images/icon/xx.png' class='xx-img' bindtap='onCancelImgTap'></image>
+</view>
+
+<view class='container' wx:if='{{containerShow}}'>
+  <view class='moviesList'>
+    <template is='movieListTemplate' data="{{...inTheaters}}" />
+    <!-- 编写template的时候，自下而上，数据传递的时候自上而下 -->
+  </view>
+  <view class='moviesList'>
+    <template is='movieListTemplate' data="{{...comingSoon}}" />
+  </view>
+  <view class='moviesList'>
+    <template is='movieListTemplate' data="{{...top250}}" />
+  </view>
+</view>
+
+<view class='search-pannel' wx:if='{{searchPannelShow}}' style='background-color:#eee;border-radius: 1em;'>
+  <template is='movieGridTemplate' data='{{...searchResult}}'></template>
+</view>

@@ -1,0 +1,22 @@
+<!--前端编码的编写原则，先静后动，先   样式，后数据-->
+<view class='container'>
+  <image src="{{isPlayingMusic ? postData.music.coverImgUrl : postData.headImgSrc}}" class='head-image'></image>
+  <image catchtap='onMusicTap' src="{{isPlayingMusic?'/images/music/music-stop.png':'/images/music/music-start.png'}}" class='audio-img'></image>
+  <view class='author-date'>
+    <image class='avatar' src="{{postData.avatar}}"></image>
+    <text class='author'>{{postData.author}}</text>
+    <text class='const-text'>发表于</text>
+    <text class='date'>{{postData.dateTime}}</text>
+  </view>
+  <text class='title'>{{postData.title}}</text>
+  <view class='tool'>
+    <view class='circle-img'>
+      <image catchtap='onCollectionTap' wx:if='{{collected}}' src='/images/icon/collection.png'></image>
+      <image catchtap='onCollectionTap' wx:else src='/images/icon/collection-anti.png'></image>
+      <image catchtap='onShareTap' class='share-img' src='/images/icon/share.png'></image>
+    </view>  
+    <view class='horizon'></view>
+  </view>
+  <!-- 这个view代表一条线 -->
+  <text class='detail'>{{postData.detail}}</text>
+</view>

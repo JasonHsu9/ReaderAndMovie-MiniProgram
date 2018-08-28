@@ -1,0 +1,11 @@
+<!--pages/welcome/welcome.wxml-->
+<view class='container'>
+  <image src='/images/avatar/maoyanavatar.png' class='user-avator'></image>
+  <text class='user-name'>您好，猫眼</text>
+  <!-- text 支持转义序列 \n 文字中直接插入 \n 就可以换行文本 -->
+  <view class='moto-container'>
+    <text class='moto' catchtap='onTap'>开启观影之旅</text >
+    <!-- catchtap 会阻止事件向父级节点冒泡，比如这里如果class='moto-container'的父节点，有一个事件函数，而上面这个 text 节点使用了catchtap，则父节点不会响应这个函数，即阻止冒泡 -->
+  </view>
+</view>
+<!-- 只有用 text 标签包围的文字才可以在手机上长按选中 -->

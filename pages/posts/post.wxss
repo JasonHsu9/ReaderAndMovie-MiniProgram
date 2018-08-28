@@ -1,0 +1,12 @@
+/* pages/posts/post.wxss */
+@import "/pages/posts/post-item/post-item-template.wxss" /* 引入post-item-template.wxss文件，这里使用相对路径和绝对路径都可以 */
+
+swiper { /* 图片容器大小 */
+  width: 100%;
+  height: 500rpx;
+}
+
+swiper image { /* 图片占满容器 */
+  width: 100%;
+  height: 500rpx;
+}

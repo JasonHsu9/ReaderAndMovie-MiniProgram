@@ -1,0 +1,12 @@
+<import src="../movie/movie-template.wxml" />
+<template name="movieGridTemplate">
+  <view class='grid-container'>
+    <block wx:for="{{movies}}" wx:for-item="movie">
+      <view class='single-movie-container'>
+        <template is="movieTemplate" data="{{...movie}}"></template>
+      </view>
+    </block>
+  </view>
+  <!-- 将此处的 scroll-view换成 view 就可以测试下拉刷新功能，因为微信的scroll-view的上滑加载和下拉刷新不能同时存在-->
+
+</template>
